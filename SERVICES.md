@@ -1,13 +1,40 @@
-kitchensink-html5-mobile: JAX-RS Services Documentation 
+kAUthentification Module: JAX-RS Services Documentation 
 =======================================================
-Author: Jay Balunas, Marius Bogoevici
+Author: Bertrand Pestre
 
-This example supports various RESTFul end points which also includes JSONP support for cross domain requests.
-
-By default the base URL for services is `/wildfly-kitchensink-html5-mobile/rest`.
-
-MemberService End Points
+AuthService End Points
 ------------------------
+
+### Authenticate user (no hash)
+#### /rest/auth
+
+* Request type: POST
+* Request type: JSON
+* Return type: JSON
+* Request example:
+
+```JavaScript
+{"login":"jean","pwd":"claude"}
+```
+* Response example:
+ * Success: 200 OK
+ * Validation error: Collection of `<field name>:<error msg>` for each error
+
+```JavaScript
+{	"id": 2,"login": "jean","firstName": "tp","lastName": "tp","role": "MANAGER","token": "0515611561654160846410" }
+```
+
+### List all members
+#### /rest/members
+
+* Request type: GET
+* Return type: JSON
+* Response example:
+
+```javascript
+[{"id":1,"name":"Jane Smith","email":"jane.smith@mailinator.com","phoneNumber":"2125551212"},{"id":0,"name":"John Smith","email":"john.smith@mailinator.com","phoneNumber":"2125551212"}]
+```
+
 
 ### List all members
 #### /rest/members
@@ -21,7 +48,6 @@ MemberService End Points
 ```
 
 ### Create a new member
-
 #### /rest/members
 
 * Request type: POST
