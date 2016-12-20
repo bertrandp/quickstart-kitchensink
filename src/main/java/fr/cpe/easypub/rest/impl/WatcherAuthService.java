@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
+import fr.cpe.easypub.auth.check.ICheckUserService;
 import fr.cpe.easypub.model.User;
 import fr.cpe.easypub.rest.IWatcherAuthService;
 
@@ -19,12 +20,15 @@ public class WatcherAuthService implements IWatcherAuthService {
 	@Inject
 	MessageReceiverSyncLocal receiver;*/
 
+	@Inject
+	ICheckUserService checkUserService;
+	
 	@Override
 	public User auth(User user) {
 
 		log.info(user.toString());
 		
-		
+		User userdb = checkUserService.getUserByLoginAndPassword(user.getLogin(), user.getPassword());
 		
 		/*sender.sendMessage(user);
 		

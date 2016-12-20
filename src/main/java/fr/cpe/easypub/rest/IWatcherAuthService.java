@@ -22,7 +22,7 @@ public interface IWatcherAuthService {
 	 * Authenticate user
 	 * 
 	 * Consumes Json: 
-	 * url:		http://localhost:8080/FrontAuthWatcherWebService/rest/watcherauth/auth
+	 * url:		http://localhost:8080/FrontAuthWatcherWebService/rest/auth
 	 * body:	{	"login" : "tpwatcher", 
 	 * 				"password" : "tp" }
 	 * 

@@ -14,15 +14,21 @@ AuthService End Points
 * Request example:
 
 ```JavaScript
-{"login":"jean","pwd":"claude"}
+{"login":"jean","password":"claude"}
 ```
 * Response example:
  * Success: 200 OK
- * Validation error: Collection of `<field name>:<error msg>` for each error
+ * Authentication error: null
 
 ```JavaScript
 {	"id": 2,"login": "jean","firstName": "tp","lastName": "tp","role": "MANAGER","token": "0515611561654160846410" }
 ```
+
+
+
+
+
+
 
 ### List all members
 #### /rest/members
