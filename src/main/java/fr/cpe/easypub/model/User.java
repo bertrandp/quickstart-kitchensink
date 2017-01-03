@@ -3,12 +3,14 @@ package fr.cpe.easypub.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
+
 
 /**
- * Created by ubuntu on 9/24/16.
+ * 
  */
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,93 +21,61 @@ public class User implements Serializable {
     private int id;
 
     @NotNull
-    @Column(name = "login", unique = true)
-    private String login;
+    @Column(name = "email", unique = true)
+    private String email;
 
     @NotNull
     @Column(name = "password")
     private String password;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "role")
     private Role role;
+    
+    @Column(name = "timestamp")
+    private Date timestamp;
 
     public User() {
     }
 
-    public User(String login, String password, String firstName, String lastName, Role role) {
-        this.login = login;
+    public User(String email, String password, String name, Role role) {
+        this.email = email;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.role = role;
     }
-    
-    public User(Role role){
-    	this(null,null,null,null,role);
-    }
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public String getPassword() {
+		return password;
+	}
+	
+	public String getName() {
+		return name;
+	}
 
 	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
-	
-	public void setRole(String role) {
-		this.role = Role.valueOf(role);
+	public Date getTimestamp() {
+		return timestamp;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", login=" + login + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", role=" + role + "]";
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", role=" + role
+				+ ", timestamp=" + timestamp + "]";
 	}
-
+    
+    
 }

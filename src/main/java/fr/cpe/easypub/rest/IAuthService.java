@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 import fr.cpe.easypub.model.User;
 
 @Path("/auth")
-public interface IWatcherAuthService {
+public interface IAuthService {
 	
 	@GET
 	@Produces("application/json")

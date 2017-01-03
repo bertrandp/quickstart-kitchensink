@@ -4,6 +4,8 @@ import fr.cpe.easypub.model.User;
 
 public interface ICheckUserService {
 
-	User getUserByLoginAndPassword(String login, String password);
+	User getFromLocalUserList(String login, String password);
+
+	User getUserFromDB(String email, String password);
 
 }

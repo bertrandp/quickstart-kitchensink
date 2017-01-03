@@ -15,19 +15,9 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<persistence version="2.1"
-   xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="
-        http://xmlns.jcp.org/xml/ns/persistence
-        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-   <persistence-unit name="primary">
-      <!-- If you are running in a production environment, add a managed
-         data source, the example data source is just for proofs of concept! -->
-      <jta-data-source>java:/ProjetMajeure</jta-data-source>
-      
-      <properties>
-         <!-- Properties for Hibernate -->
-         <property name="hibernate.show_sql" value="false" />
-      </properties>
-   </persistence-unit>
-</persistence>
+<!-- Marker file indicating CDI should be enabled -->
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://xmlns.jcp.org/xml/ns/javaee
+        http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd" bean-discovery-mode="all">
+</beans>
